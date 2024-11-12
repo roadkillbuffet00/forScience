@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
+    private void Update()
+    {
+        if (transform.position.y < -1f)
+        {
+            Die();
+        }
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -19,6 +26,7 @@ public class player : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<playermovement>().enabled = false;
         Invoke(nameof(ReloadLevel),1.3f);
+        Debug.Log("ded");
     }
     void ReloadLevel()
     {
