@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
+    bool dead = false;
     private void Update()
     {
-        if (transform.position.y < -1f)
+        if (transform.position.y < -1f && !dead)
         {
             Die();
         }
@@ -17,16 +18,17 @@ public class player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy Body"))
         {
+            GetComponent<MeshRenderer>().enabled = false;
+            GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<playermovement>().enabled = false;
             Die();
         }
     }
     void Die()
     {
-        GetComponent<MeshRenderer>().enabled = false;
-        GetComponent<Rigidbody>().isKinematic = true;
-        GetComponent<playermovement>().enabled = false;
         Invoke(nameof(ReloadLevel),1.3f);
-        Debug.Log("ded");
+        dead = true;
+       
     }
     void ReloadLevel()
     {
