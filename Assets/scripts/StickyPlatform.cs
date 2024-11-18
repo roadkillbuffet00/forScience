@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class stickyPllatform : MonoBehaviour
-{ 
- private void OnCollisionEnter(Collision collision)
+public class StickyPlatform : MonoBehaviour
+{
+    private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name== "player")
+        if (collision.gameObject.name == "Player")
         {
             collision.gameObject.transform.SetParent(transform);
         }
@@ -14,10 +14,9 @@ public class stickyPllatform : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.name == "player")
+        if (collision.gameObject.name == "Player")
         {
             collision.gameObject.transform.SetParent(null);
         }
     }
 }
-

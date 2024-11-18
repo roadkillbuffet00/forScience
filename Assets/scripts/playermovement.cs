@@ -36,9 +36,6 @@ public class playermovement : MonoBehaviour
         Vector3 moveDirection = transform.right * horizontalInput + transform.forward * verticalInput;
         rb.velocity= new Vector3(moveDirection.x * movementSpeed, rb.velocity.y, moveDirection. z * movementSpeed);
 
-
-        rb.velocity = new Vector3(horizontalInput * movementSpeed, rb.velocity.y, verticalInput * movementSpeed);
-
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             Jump();
