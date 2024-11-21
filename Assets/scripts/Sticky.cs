@@ -7,11 +7,11 @@ public class Sticky : MonoBehaviour
     private Vector3 lastPlatformPosition;
     private GameObject player;
 
-    private void Start()
+     void Start()
     {
         lastPlatformPosition = transform.position;
     }
-    private void OnCollisionEnter(Collision collision)
+     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Player")
         {
@@ -19,14 +19,14 @@ public class Sticky : MonoBehaviour
             lastPlatformPosition = transform.position;
         }
     }
-    private void OnCollisionExit(Collision collision)
+    void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.name == "Player")
         {
             player = null;
         }
     }
-    private void Update()
+     void Update()
     {
         if (player != null)
         {

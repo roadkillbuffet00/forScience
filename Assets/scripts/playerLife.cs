@@ -8,7 +8,7 @@ public class player : MonoBehaviour
     bool dead = false;
     private void Update()
     {
-        if (transform.position.y < -1f && !dead)
+        if (transform.position.y < -3f && !dead)
         {
             Die();
         }
@@ -26,7 +26,7 @@ public class player : MonoBehaviour
     }
     void Die()
     {
-        Invoke(nameof(ReloadLevel),1.3f);
+        Invoke(nameof(ReloadLevel),1.2f);
         dead = true;
        
     }

@@ -16,7 +16,7 @@ public class playermovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Cursor.lockState=   CursorLockMode.Locked; // Lock the cursor in place 
+        Cursor.lockState = CursorLockMode.Locked; // Lock the cursor in place 
     }
 
     // Update is called once per frame
