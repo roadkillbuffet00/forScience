@@ -61,6 +61,5 @@ public class playermovement : MonoBehaviour
     bool IsGrounded()
     {
        return  Physics.CheckSphere(groundCheck.position, .1f, ground);
-    }
-
-}
+        Animator myAnim;
+        { 
