@@ -17,7 +17,7 @@ public class ItemCollectorl : MonoBehaviour
         {
             Destroy(other.gameObject);
             coins++;
-            coinsText.text = "Coins: " + coins;
+            coinsText.text = "coins: " + coins;
          
         }
     }
