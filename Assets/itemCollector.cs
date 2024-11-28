@@ -1,17 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class itemCollector : MonoBehaviour
+public class ItemCollector : MonoBehaviour
 {
-    int coins = 0;
-  private void OnTriggerEnter(Collider other)
+    public int coins = 0;
+
+    [SerializeField] TMP_Text coinsText;
+
+    [SerializeField] AudioSource collectionSound;
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Coin"))
+        if (other.gameObject.CompareTag("Coins"))
         {
             Destroy(other.gameObject);
+            
             coins++;
-            Debug.Log("Coins:" + coins);
+            coinsText.text = "coins: " + coins;
+            collectionSound.Play();
         }
     }
 }
